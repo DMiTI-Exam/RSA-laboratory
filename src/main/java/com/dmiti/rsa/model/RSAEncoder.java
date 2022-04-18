@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.math.BigInteger;
+import java.util.PrimitiveIterator;
 import java.util.Random;
 
 @Component
@@ -23,12 +24,14 @@ public class RSAEncoder {
     }
 
     public BigInteger encode(String message) {
-        // TODO: Randomly generate simple numbers p and q
-        this.p = BigInteger.valueOf(9973);
-        this.q = BigInteger.valueOf(8929);
+        generatePrimes();
+        logger.info("p = " + p.toString());
+        logger.info("q = " + q.toString());
 
         this.n = p.multiply(q);
+        logger.info("n = " + n.toString());
         this.phiN = p.subtract(BigInteger.ONE).multiply(q.subtract(BigInteger.ONE));
+        logger.info("phiN = " + phiN.toString());
 
         generateE();
         calculateD();
@@ -37,14 +40,27 @@ public class RSAEncoder {
         logger.info("d = " + d.toString());
 
         // TODO: Transform the message to the array of numbers
-        BigInteger msg = BigInteger.valueOf(34500000);
+        BigInteger msg = new BigInteger("34500000000000");
         BigInteger encrypted_msg = msg.modPow(e, n);
 
         logger.info("encrypted message = " + encrypted_msg.toString());
         return encrypted_msg;
     }
 
-    public void generateE() {
+    private void generatePrimes() {
+        Random random = new Random(System.currentTimeMillis());
+        int minBitLength = 5;
+        int maxBitLength = 93;
+
+        PrimitiveIterator.OfInt iterator = random.ints(minBitLength, maxBitLength)
+                .limit(2)
+                .iterator();
+
+        p = BigInteger.probablePrime(iterator.nextInt(), random);
+        q = BigInteger.probablePrime(iterator.nextInt(), random);
+    }
+
+    private void generateE() {
         Random random = new Random(System.currentTimeMillis());
         int minBound = 3;
         int maxBound = 50;
@@ -59,7 +75,7 @@ public class RSAEncoder {
         this.e = BigInteger.valueOf(degree);
     }
 
-    public void calculateD() {
+    private void calculateD() {
         BigInteger k = BigInteger.valueOf(2);
         while (phiN.multiply(k).add(BigInteger.ONE).mod(e).compareTo(BigInteger.ZERO) != 0) {
             k = k.add(BigInteger.ONE);

@@ -19,10 +19,7 @@ public class RSAEncoderTest {
 
     @Test
     public void shouldFindClientByLogin() {
-        for (int i = 0; i < 50; ++i) {
-            System.out.println(BigInteger.probablePrime(94, new Random(System.currentTimeMillis())));
-        }
-        //BigInteger encryptedMessage = encoder.encode("123");
-        //encoder.decode(encryptedMessage);
+        BigInteger encryptedMessage = encoder.encode("123");
+        encoder.decode(encryptedMessage);
     }
 }
