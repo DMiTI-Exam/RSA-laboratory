@@ -15,4 +15,18 @@ public class MainController {
 
         return "index";
     }
+
+    @GetMapping("/laboratory")
+    public String laboratoryPage() {
+        logger.info("Showing the laboratory page");
+
+        return "main/laboratory";
+    }
+
+    @GetMapping("/about")
+    public String aboutPage() {
+        logger.info("Showing the about page");
+
+        return "main/about";
+    }
 }
