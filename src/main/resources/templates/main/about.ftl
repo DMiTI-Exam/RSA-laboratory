@@ -35,7 +35,7 @@
                             <p class="card-text">
                             </p>
                             <hr/>
-                            <p class="card-text"><small>Я тоже своего рода backend, но на python. В этом проекте я был frontend-ером, что делает меня fullstack-ом</small></p>
+                            <p class="card-text"><small>Я тоже своего рода backend, но на python. Однако в этом проекте я был frontend-ером</small></p>
                         </div>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
         СПБГЭТУ "ЛЭТИ" им В. И. Ульянова (Ленина)<br>
         Кафедра алгоритмической математики<br>
         2022 год<br>
-        (с) Все права защищены.
+        © Все права защищены.
     </div>
 
 </@c.commonPage>
