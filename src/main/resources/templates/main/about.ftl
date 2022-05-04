@@ -17,7 +17,7 @@
                             <p class="card-text">
                             </p>
                             <hr/>
-                            <p class="card-text"><small>Backend-программист, знающий java в совершенстве. Руководитель в данном проекте</small></p>
+                            <p class="card-text"><small>&lt;Описание&gt;</small></p>
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                             <p class="card-text">
                             </p>
                             <hr/>
-                            <p class="card-text"><small>Я тоже своего рода backend, но на python. Однако в этом проекте я был frontend-ером</small></p>
+                            <p class="card-text"><small>&lt;Описание&gt;</small></p>
                         </div>
                     </div>
                 </div>
