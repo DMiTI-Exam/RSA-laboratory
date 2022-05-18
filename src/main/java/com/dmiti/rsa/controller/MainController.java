@@ -36,4 +36,25 @@ public class MainController {
 
         return "main/rsa_generator";
     }
+
+    @GetMapping("/poor_rsa")
+    public String rsaPoorPage() {
+        logger.info("Showing the poor rsa notification");
+
+        return "main/poor_rsa";
+    }
+
+    @GetMapping("/stable_rsa")
+    public String rsaStablePage() {
+        logger.info("Showing the stable rsa notification");
+
+        return "main/stable_rsa";
+    }
+
+    @GetMapping("/decrypt_process")
+    public String rsaDecryptPage() {
+        logger.info("Showing the start decrypt notification");
+
+        return "main/decrypt_process";
+    }
 }
