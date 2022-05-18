@@ -2,25 +2,122 @@
 
 <@c.commonPage>
     <form>
-        <div class="mb-3">
-            <label for="p_value" id="p" class="form-label">Минимальная битовая длина (2^(n-1)+1) для числа p [3]:</label>
-            <input type="range" class="form-control" min="5" max="93" value="3" id="p_value">
+        <div class="form-group">
+            <div class="row pt-2 pb-2">
+                <div class="col mx-auto">
+                    <div class="text-center">
+                        Минимальная битовая длина (2^(n-1) + 1)
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-between pt-2 pb-2">
+                <div class="col">
+                    <div class="row justify-content-center">
+                        <div class="col-2">
+                            <span class="mr-0" id="p-min">p (5):</span>
+                        </div>
+                        <div class="col-xs">
+                            <span class="ml-0 mr-0">5</span>
+                        </div>
+                        <div class="col-5 my-auto">
+                            <input id="p-min-value" type="range" value="5" min="5" max="93" class="form-control-range w-100  ml-0 mr-0">
+                        </div>
+                        <div class="col-xs">
+                            <span class="ml-0">93</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row justify-content-center">
+                        <div class="col-2">
+                            <span class="mr-0" id="q-min">q (93):</span>
+                        </div>
+                        <div class="col-xs">
+                            <span class="ml-0 mr-0">5</span>
+                        </div>
+                        <div class="col-5 my-auto">
+                            <input id="q-min-value" type="range" value="5" min="5" max="93" class="form-control-range w-100  ml-0 mr-0">
+                        </div>
+                        <div class="col-xs">
+                            <span class="ml-0">93</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row  pt-2 pb-2">
+                <div class="col mx-auto">
+                    <div class="text-center">
+                        Максимальная битовая длина (2^n - 1)
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-between pt-2 pb-2">
+                <div class="col">
+                    <div class="row justify-content-center">
+                        <div class="col-2">
+                            <span class="mr-0" id="p-max">p (5):</span>
+                        </div>
+                        <div class="col-xs">
+                            <span class="ml-0 mr-0">5</span>
+                        </div>
+                        <div class="col-5 my-auto">
+                            <input id="p-max-value" type="range" value="93" min="5" max="93" class="form-control-range w-100  ml-0 mr-0">
+                        </div>
+                        <div class="col-xs">
+                            <span class="ml-0">93</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row justify-content-center">
+                        <div class="col-2">
+                            <span class="mr-0" id="q-max">q (93):</span>
+                        </div>
+                        <div class="col-xs">
+                            <span class="ml-0 mr-0">5</span>
+                        </div>
+                        <div class="col-5 my-auto">
+                            <input id="q-max-value" type="range" value="93" min="5" max="93" class="form-control-range w-100  ml-0 mr-0">
+                        </div>
+                        <div class="col-xs">
+                            <span class="ml-0">93</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-2 pb-2">
+                <div class="col mx-auto">
+                    <div id="e-min" class="text-center">
+                        Нижняя граница e (3)
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-2 pb-2">
+                <div class="col">
+                    <div class="row justify-content-center">
+                        <div class="col-xs">
+                            <span>3</span>
+                        </div>
+                        <div class="col-10 my-auto">
+                            <input id="e-min-value" type="range" value="3" min="3" max="500" class="form-control-range w-100  ml-0 mr-0">
+                        </div>
+                        <div class="col-xs">
+                            <span>500</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-2 pb-2">
+                <div class="col pl-5 pr-5">
+                    <textarea class="form-control" rows="6" placeholder="Введите своё сообщение для шифрования"></textarea>
+                </div>
+            </div>
+            <div class="row pt-2 pb-2">
+                <div class="col pl-5 pr-5">
+                    <button type="submit" class="btn btn-primary submit-button form-control">Сгенерировать RSA</button>
+                </div>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="q_value" id="q" class="form-label">Минимальная битовая длина (2^(n-1)+1) для числа q [3]:</label>
-            <input type="range" class="form-control" min="5" max="93" value="3" id="q_value">
-        </div>
-        <div class="mb-3">
-            <label for="degree" id="e" class="form-label">Нижняя граница степени e [3]:</label>
-            <input type="range" class="form-control" min="3" max="500" value="3" id="degree">
-        </div>
-        <div class="mb-3">
-            <label for="message" class="form-label">Сообщение:</label>
-            <input type="text" class="form-control" id="message">
-        </div>
-        <div class="mb-3 form-check">
-        </div>
-        <button type="submit" class="btn btn-primary submit-button">Сгенерировать RSA</button>
     </form>
     <script src="/js/valueChanger.js"></script>
 </@c.commonPage>
