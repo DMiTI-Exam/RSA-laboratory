@@ -15,7 +15,7 @@
             <input type="range" class="form-control" min="3" max="500" value="3" id="degree">
         </div>
         <div class="mb-3">
-            <label for="Message" class="form-label">Сообщение:</label>
+            <label for="message" class="form-label">Сообщение:</label>
             <input type="text" class="form-control" id="message">
         </div>
         <div class="mb-3 form-check">

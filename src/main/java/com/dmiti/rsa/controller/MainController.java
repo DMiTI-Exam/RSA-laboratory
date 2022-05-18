@@ -29,6 +29,7 @@ public class MainController {
 
         return "main/about";
     }
+
     @GetMapping("/rsa_generator")
     public String rsaGeneratorPage() {
         logger.info("Showing the rsa generator page");
