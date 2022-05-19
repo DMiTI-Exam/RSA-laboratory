@@ -54,6 +54,8 @@ public class RSAEncoder {
         List<String> partedMessage = splitMessage(message);
         codeParts(partedMessage);
 
+        partedMessage.add(0, "N = " + n.toString() + ", e = " + e.toString() + "\n");
+
         // TODO: remove after debugging
         logNumbers(p, q, phiN, partedMessage);
 
