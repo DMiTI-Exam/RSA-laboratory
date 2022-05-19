@@ -4,7 +4,6 @@ import com.dmiti.rsa.util.Util;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 
 import java.math.BigInteger;
 import java.util.List;
@@ -12,7 +11,6 @@ import java.util.concurrent.*;
 
 import static com.dmiti.rsa.util.Util.characters;
 
-@Component
 public class RSACracker {
     private static final Logger logger = LoggerFactory.getLogger(RSACracker.class);
 
@@ -22,10 +20,6 @@ public class RSACracker {
     private ImmutablePair<BigInteger, BigInteger> publicKey;
 
     private List<String> messageParts;
-
-    protected RSACracker() {
-
-    }
 
     public RSACracker(BigInteger n, BigInteger e, List<String> message) {
         publicKey = new ImmutablePair<>(n, e);
@@ -42,7 +36,7 @@ public class RSACracker {
             Callable<BigInteger> task = () -> findDegree(code);
 
             ExecutorService service = Executors.newSingleThreadExecutor();
-            BigInteger s = service.submit(task).get(10, TimeUnit.MINUTES);
+            BigInteger s = service.submit(task).get(1, TimeUnit.MINUTES);
 
             int index = numericMsg.modPow(Util.pow(publicKey.right, s.subtract(BigInteger.ONE)), publicKey.left)
                     .intValue() - 100;

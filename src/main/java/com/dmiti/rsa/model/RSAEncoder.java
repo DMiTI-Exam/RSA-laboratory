@@ -4,14 +4,13 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 
 import java.math.BigInteger;
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static com.dmiti.rsa.util.Util.characters;
 
-@Component
 public class RSAEncoder {
     private static final Logger logger = LoggerFactory.getLogger(RSAEncoder.class);
 
@@ -34,10 +33,6 @@ public class RSAEncoder {
      * Private key represents a d number (reciprocal of e)
      */
     private BigInteger privateKey;
-
-    protected RSAEncoder() {
-
-    }
 
     public RSAEncoder(ImmutablePair<Integer, Integer> primesBitLength, ImmutablePair<Integer, Integer> eBounds) {
         this.primesBitLength = primesBitLength;
@@ -70,14 +65,18 @@ public class RSAEncoder {
         int minBitLength = primesBitLength.left;
         int maxBitLength = primesBitLength.right;
 
-        PrimitiveIterator.OfInt iterator = random.ints(minBitLength, maxBitLength)
-                .limit(10)
-                .distinct()
+        List<Integer> bitLengths = random.ints(minBitLength, maxBitLength)
                 .limit(2)
-                .iterator();
+                .boxed()
+                .collect(Collectors.toList());
 
-        BigInteger p = BigInteger.probablePrime(iterator.nextInt(), random);
-        BigInteger q = BigInteger.probablePrime(iterator.nextInt(), random);
+        BigInteger p;
+        BigInteger q;
+        do {
+            p = BigInteger.probablePrime(bitLengths.get(0), random);
+            q = BigInteger.probablePrime(bitLengths.get(1), random);
+        } while (p.compareTo(q) == 0);
+
         return new BigInteger[] {p, q};
     }
 
