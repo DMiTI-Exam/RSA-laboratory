@@ -79,6 +79,21 @@ public class MainController {
         return "main/decrypt_process";
     }
 
+    @GetMapping("/training")
+    public String trainingPage(Model model) {
+        logger.info("Showing the training page");
+
+        RSAEncoder rsaEncoder = new RSAEncoder(new ImmutablePair<>(4, 10),
+                new ImmutablePair<>(3, 1000));
+        List<String> code = rsaEncoder.encode(random.nextInt(300) + 1 + "");
+        String source = rsaEncoder.decode(code);
+
+        model.addAttribute("code", code);
+        model.addAttribute("source", source);
+
+        return "main/training";
+    }
+
     @PostMapping("/rsa_generator")
     public String generateRsa(@RequestParam("p_min_value") int minBitLength,
                               @RequestParam("p_max_value") int maxBitLength,
@@ -124,5 +139,9 @@ public class MainController {
         }
     }
 
-    //TODO: generate simple RSA code on any word with a small p, q and e numbers. User on his own decode and enter a resutl. Check validity of results and return corresponding message.
+    /*@PostMapping("/training")
+    public String trainProcess() {
+
+    }*/
+    //TODO: generate simple RSA code on any word with a small p, q and e numbers. User on his own decode and enter a result. Check validity of results and return corresponding message.
 }
