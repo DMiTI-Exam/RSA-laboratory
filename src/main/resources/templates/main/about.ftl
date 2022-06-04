@@ -9,7 +9,7 @@
             <div class="card mb-3 text-white">
                 <div class="row no-gutters">
                     <div class="col-md-4">
-                        <img src="/images/photo_1.jpg" class="card-img" alt="Владислав Смирнов"/>
+                        <img src="/images/photo1.jpg" class="card-img" alt="Владислав Смирнов"/>
                     </div>
                     <div class="col-md-8 text-center">
                         <div class="card-body">
@@ -17,7 +17,7 @@
                             <p class="card-text">
                             </p>
                             <hr/>
-                            <p class="card-text"><small>&lt;Описание&gt;</small></p>
+                            <p class="card-text"><small>&lt;\Математик и ответственный за серверную часть приложения&gt;</small></p>
                         </div>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
             <div class="card mb-3 text-white">
                 <div class="row no-gutters">
                     <div class="col-md-4">
-                        <img src="/images/photo_2.jpg" class="card-img" alt="Димитрий Перчаткин"/>
+                        <img src="/images/photo2.jpg" class="card-img" alt="Димитрий Перчаткин"/>
                     </div>
                     <div class="col-md-8 text-center">
                         <div class="card-body">
@@ -35,7 +35,7 @@
                             <p class="card-text">
                             </p>
                             <hr/>
-                            <p class="card-text"><small>&lt;Описание&gt;</small></p>
+                            <p class="card-text"><small>&lt;\Дизайнер и ответственный за клиентскую часть приложения&gt;</small></p>
                         </div>
                     </div>
                 </div>

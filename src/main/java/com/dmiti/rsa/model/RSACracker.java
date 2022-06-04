@@ -37,7 +37,7 @@ public class RSACracker {
             Callable<BigInteger> task = () -> findDegree(code);
 
             ExecutorService service = Executors.newSingleThreadExecutor();
-            BigInteger s = service.submit(task).get(5, TimeUnit.MINUTES);
+            BigInteger s = service.submit(task).get(6, TimeUnit.MINUTES);
 
             int index = numericMsg.modPow(Util.pow(publicKey.right, s.subtract(BigInteger.ONE)), publicKey.left)
                     .intValue() - 100;

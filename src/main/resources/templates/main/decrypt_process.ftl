@@ -7,5 +7,5 @@
         <p>Мы заняты взломом вашего шифра. Пожалуйста, подождите, не закрывайте эту вкладку. Мы расскажем о результате</p>
         <h5 id="time">05:00</h5>
     </div>
-    <script src="/js/countdown.js"></script>
+    <script src="/js/get_result.js"></script>
 </@c.commonPage>

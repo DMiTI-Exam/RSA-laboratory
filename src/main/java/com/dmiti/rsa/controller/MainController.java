@@ -81,7 +81,7 @@ public class MainController {
 
     @GetMapping("/training")
     public String trainingPage(Model model) {
-        logger.info("Showing the training page");
+        /*logger.info("Showing the training page");
 
         int degree = random.ints(3, 501).findFirst().getAsInt();
         RSAEncoder rsaEncoder = new RSAEncoder(new ImmutablePair<>(4, 10), degree);
@@ -95,7 +95,7 @@ public class MainController {
         model.addAttribute("description", description);
         model.addAttribute("code", code);
         model.addAttribute("source", source);
-
+*/
         return "main/training";
     }
 
@@ -120,6 +120,7 @@ public class MainController {
                                @RequestParam("message") String message,
                                @RequestParam("pid") String pid,
                                Model model) {
+        logger.info(nNumber + " " + eNumber + " " + message + " " + pid);
         List<String> encodedParts = Arrays.stream(message.split(" "))
                 .collect(Collectors.toList());
         RSACracker cracker = new RSACracker(new BigInteger(nNumber), new BigInteger(eNumber), encodedParts);

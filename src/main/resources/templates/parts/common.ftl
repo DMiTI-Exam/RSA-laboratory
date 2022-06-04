@@ -10,6 +10,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;500&display=swap" rel="stylesheet">
         <link type="text/css" rel="stylesheet" href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css"/>
         <link type="text/css" rel="stylesheet" href="/css/common.css"/>
+        <link type="text/css" rel="stylesheet" href="/css/neon.css"/>
+
 
         <link rel="shortcut icon" type="image/x-icon" href="https://img.icons8.com/dusk/32/000000/data-encryption.png"/>
     </head>
