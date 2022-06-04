@@ -29,6 +29,7 @@ public class RSACracker {
     public String crack() throws InterruptedException, TimeoutException, ExecutionException {
         BigInteger numericMsg;
         StringBuilder decodedMessage = new StringBuilder();
+        messageParts.remove(0);
         for (String message : messageParts) {
             numericMsg = new BigInteger(message);
 
@@ -36,7 +37,7 @@ public class RSACracker {
             Callable<BigInteger> task = () -> findDegree(code);
 
             ExecutorService service = Executors.newSingleThreadExecutor();
-            BigInteger s = service.submit(task).get(1, TimeUnit.MINUTES);
+            BigInteger s = service.submit(task).get(5, TimeUnit.MINUTES);
 
             int index = numericMsg.modPow(Util.pow(publicKey.right, s.subtract(BigInteger.ONE)), publicKey.left)
                     .intValue() - 100;

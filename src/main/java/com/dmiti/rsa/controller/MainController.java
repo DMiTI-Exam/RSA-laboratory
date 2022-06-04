@@ -86,8 +86,13 @@ public class MainController {
         RSAEncoder rsaEncoder = new RSAEncoder(new ImmutablePair<>(4, 10),
                 new ImmutablePair<>(3, 1000));
         List<String> code = rsaEncoder.encode(random.nextInt(300) + 1 + "");
+        code.remove(0);
+        String description = String.format("Необходимо расшифровать следующий код, представляющий число (каждая цифра" +
+                "шифруется одним числом): %s. Также дано: N = %s, e = %s", code, rsaEncoder.getPublicKey().left,
+                rsaEncoder.getPublicKey().right);
         String source = rsaEncoder.decode(code);
 
+        model.addAttribute("description", description);
         model.addAttribute("code", code);
         model.addAttribute("source", source);
 
@@ -119,7 +124,7 @@ public class MainController {
         List<String> encodedParts = Arrays.stream(message.split(" "))
                 .collect(Collectors.toList());
         RSACracker cracker = new RSACracker(new BigInteger(nNumber), new BigInteger(eNumber), encodedParts);
-        
+
         Callable<String> task = cracker::crack;
         FutureTask<String> decodeTask = new FutureTask<>(task);
         service.submit(decodeTask);
