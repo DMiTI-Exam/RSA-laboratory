@@ -29,7 +29,6 @@ public class RSACracker {
     public String crack() throws InterruptedException, TimeoutException, ExecutionException {
         BigInteger numericMsg;
         StringBuilder decodedMessage = new StringBuilder();
-        messageParts.remove(0);
         for (String message : messageParts) {
             numericMsg = new BigInteger(message);
 

@@ -5,7 +5,7 @@
         <div class="alert alert-primary" role="alert">
             <h4 class="alert-heading">Ваш RSA</h4>
             <hr>
-            <p id="code" rows="6"><#list encodedMessage as m>${m}<br/> </#list></p>
+            <p id="code" style="word-wrap: break-word">N = ${N}, e = ${e}<br/><#list encodedMessage as m>${m} </#list></p>
         </div>
     </#if>
     <form action="/rsa_generator" method="post">

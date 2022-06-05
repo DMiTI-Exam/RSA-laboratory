@@ -54,7 +54,7 @@ public class RSAEncoder {
         List<String> partedMessage = splitMessage(message);
         codeParts(partedMessage);
 
-        partedMessage.add(0, "N = " + n.toString() + ", e = " + e.toString() + "\n");
+        //partedMessage.add(0, "N = " + n.toString() + ", e = " + e.toString() + "\n");
 
         // TODO: remove after debugging
         logNumbers(p, q, phiN, partedMessage);
@@ -124,7 +124,6 @@ public class RSAEncoder {
 
     public String decode(List<String> codedMessage) {
         StringBuilder encodedMessage = new StringBuilder();
-        codedMessage.remove(0);
         for (String code : codedMessage) {
             int index = new BigInteger(code).modPow(privateKey, publicKey.left).intValue() - 100;
             encodedMessage.append(characters[index]);

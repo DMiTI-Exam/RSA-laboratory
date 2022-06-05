@@ -81,21 +81,23 @@ public class MainController {
 
     @GetMapping("/training")
     public String trainingPage(Model model) {
-        /*logger.info("Showing the training page");
+        logger.info("Showing the training page");
 
         int degree = random.ints(3, 501).findFirst().getAsInt();
-        RSAEncoder rsaEncoder = new RSAEncoder(new ImmutablePair<>(4, 10), degree);
-        List<String> code = rsaEncoder.encode(random.nextInt(300) + 1 + "");
-        code.remove(0);
+        RSAEncoder rsaEncoder = new RSAEncoder(new ImmutablePair<>(5, 7), degree);
+        List<String> code = rsaEncoder.encode(random.nextInt(1000) + 1 + "");
         String description = String.format("Необходимо расшифровать следующий код, представляющий число (каждая цифра" +
-                "шифруется одним числом): %s. Также дано: N = %s, e = %s", code, rsaEncoder.getPublicKey().left,
+                "шифруется одним числом): %s. Также дано: N = %s, e = %s.\n" +
+                        "Для выполнения данного задания используйте алфавит:\n219 - '1', " +
+                        "220 - '2', 221 - '3', 222 - '4', 223 - '5', 224 - '6', 225 - '7' " +
+                        "226 - '8', 227 - '9', 228 - '0'", code, rsaEncoder.getPublicKey().left,
                 rsaEncoder.getPublicKey().right);
         String source = rsaEncoder.decode(code);
 
         model.addAttribute("description", description);
         model.addAttribute("code", code);
         model.addAttribute("source", source);
-*/
+
         return "main/training";
     }
 
@@ -108,6 +110,8 @@ public class MainController {
         RSAEncoder rsaEncoder = new RSAEncoder(new ImmutablePair<>(minBitLength, maxBitLength), eMinValue);
 
         List<String> encodedMessage = rsaEncoder.encode(message);
+        model.addAttribute("N", rsaEncoder.getPublicKey().left);
+        model.addAttribute("e", rsaEncoder.getPublicKey().right);
         model.addAttribute("encodedMessage", encodedMessage);
         model.addAttribute("message", message);
 

@@ -20,8 +20,7 @@ function startTimer(display) {
 
 function getData() {
     let pid = localStorage.getItem("pid")
-    $.ajax(
-    {
+    $.ajax({
         type: "POST",
         url: "check_progress/" + pid,
         error: function()
@@ -34,18 +33,18 @@ function getData() {
         },
         success: function(result)
         {
-            if (result != "NONE"){
-                window.location = "/poor_rsa"
-            }
-            else if (result == "NONE" && timer <= 0){
-                window.location = "/stable_rsa"
+            if (result == "Timeout") {
+                window.location = "/stable_rsa";
+            } else if (result != "NONE"){
+                window.location = "/poor_rsa";
+            } else if (result == "NONE" && timer <= 0){
+                window.location = "/stable_rsa";
             }
         }
-        });
+    });
 }
 
 window.onload = function () {
     let display = document.querySelector('#time');
     startTimer(display);
-
 }
