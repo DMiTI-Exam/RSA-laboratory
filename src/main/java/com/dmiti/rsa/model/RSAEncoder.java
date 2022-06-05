@@ -20,9 +20,9 @@ public class RSAEncoder {
     private ImmutablePair<Integer, Integer> primesBitLength;
 
     /**
-     * Min and max value for e number (power for message)
+     * Min value for e number (power for message)
      */
-    private ImmutablePair<Integer, Integer> eBounds;
+    private Integer eBound;
 
     /**
      * Public key represents a pair with N and e numbers
@@ -34,9 +34,9 @@ public class RSAEncoder {
      */
     private BigInteger privateKey;
 
-    public RSAEncoder(ImmutablePair<Integer, Integer> primesBitLength, ImmutablePair<Integer, Integer> eBounds) {
+    public RSAEncoder(ImmutablePair<Integer, Integer> primesBitLength, Integer eBound) {
         this.primesBitLength = primesBitLength;
-        this.eBounds = eBounds;
+        this.eBound = eBound;
     }
 
     public List<String> encode(String message) {
@@ -83,16 +83,10 @@ public class RSAEncoder {
     }
 
     private BigInteger generateE(BigInteger phiN) {
-        Random random = new Random(System.currentTimeMillis());
-        int minBound = eBounds.left;
-        int maxBound = eBounds.right;
-
-        int degree;
-        do {
-            degree = random.ints(minBound, maxBound)
-                    .findFirst()
-                    .orElse(0);
-        } while (phiN.gcd(BigInteger.valueOf(degree)).compareTo(BigInteger.ONE) != 0);
+        int degree = eBound;
+        while (phiN.gcd(BigInteger.valueOf(degree)).compareTo(BigInteger.ONE) != 0) {
+            ++degree;
+        }
 
         return BigInteger.valueOf(degree);
     }
@@ -130,6 +124,7 @@ public class RSAEncoder {
 
     public String decode(List<String> codedMessage) {
         StringBuilder encodedMessage = new StringBuilder();
+        codedMessage.remove(0);
         for (String code : codedMessage) {
             int index = new BigInteger(code).modPow(privateKey, publicKey.left).intValue() - 100;
             encodedMessage.append(characters[index]);
@@ -154,5 +149,21 @@ public class RSAEncoder {
 
     public void setPublicKey(ImmutablePair<BigInteger, BigInteger> publicKey) {
         this.publicKey = publicKey;
+    }
+
+    public ImmutablePair<Integer, Integer> getPrimesBitLength() {
+        return primesBitLength;
+    }
+
+    public void setPrimesBitLength(ImmutablePair<Integer, Integer> primesBitLength) {
+        this.primesBitLength = primesBitLength;
+    }
+
+    public Integer getE() {
+        return eBound;
+    }
+
+    public void setE(Integer eBound) {
+        this.eBound = eBound;
     }
 }

@@ -83,8 +83,8 @@ public class MainController {
     public String trainingPage(Model model) {
         logger.info("Showing the training page");
 
-        RSAEncoder rsaEncoder = new RSAEncoder(new ImmutablePair<>(4, 10),
-                new ImmutablePair<>(3, 1000));
+        int degree = random.ints(3, 501).findFirst().getAsInt();
+        RSAEncoder rsaEncoder = new RSAEncoder(new ImmutablePair<>(4, 10), degree);
         List<String> code = rsaEncoder.encode(random.nextInt(300) + 1 + "");
         code.remove(0);
         String description = String.format("Необходимо расшифровать следующий код, представляющий число (каждая цифра" +
@@ -105,8 +105,7 @@ public class MainController {
                               @RequestParam("e_min_value") int eMinValue,
                               @RequestParam("message") String message,
                               Model model) {
-        RSAEncoder rsaEncoder = new RSAEncoder(new ImmutablePair<>(minBitLength, maxBitLength),
-                new ImmutablePair<>(eMinValue, 1000));
+        RSAEncoder rsaEncoder = new RSAEncoder(new ImmutablePair<>(minBitLength, maxBitLength), eMinValue);
 
         List<String> encodedMessage = rsaEncoder.encode(message);
         model.addAttribute("encodedMessage", encodedMessage);
@@ -135,10 +134,14 @@ public class MainController {
 
     @PostMapping("/check_progress/{pid}")
     @ResponseBody
-    public String checkProgress(@PathVariable("pid") String pid) throws ExecutionException, InterruptedException {
+    public String checkProgress(@PathVariable("pid") String pid) throws InterruptedException {
         FutureTask<String> task = processes.get(pid);
         if (task.isDone()) {
-            return task.get();
+            try {
+                return task.get();
+            } catch (ExecutionException e) {
+                return "Timeout";
+            }
         } else {
             return "NONE";
         }

@@ -6,6 +6,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigInteger;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
@@ -15,7 +17,7 @@ public class RSAEncoderTest {
 
     @BeforeEach
     public void setUp() {
-        encoder = new RSAEncoder(new ImmutablePair<>(6, 30), new ImmutablePair<>(8, 500));
+        encoder = new RSAEncoder(new ImmutablePair<>(6, 30), 8);
     }
 
     @Test
@@ -43,5 +45,45 @@ public class RSAEncoderTest {
 
         System.out.println("Code: " + code);
         System.out.println("Source message: " + source);*/
+
+
+
+        /*for (int i = 5; i < 30; ++i) {
+            encoder.setPrimesBitLength(new ImmutablePair<>(i, i+1));
+            for (int k = 5; k < 10; ++k) {
+                StringBuilder builder = new StringBuilder();
+                for (int p = 0; p < k; ++p) {
+                    builder.append(p % 10);
+                }
+
+                List<String> message = encoder.encode(builder.toString());
+
+                RSACracker cracker = new RSACracker(encoder.getPublicKey().left, encoder.getPublicKey().right, message);
+                Instant startTime = Instant.now();
+                cracker.crack();
+                Instant endTime = Instant.now();
+
+                System.out.println("--------------------------");
+                System.out.print(i - 4 + ") ");
+                System.out.println("Bit length: " + i);
+                System.out.println("Message length: " + builder.length());
+                System.out.println("Message: " + builder.toString());
+                System.out.println("Cracking time: " + Duration.between(startTime, endTime).toMillis());
+                System.out.println();
+            }
+        }*/
+
+        /*encoder.setPrimesBitLength(new ImmutablePair<>(12, 13));
+        encoder.setE(500);
+        List<String> message = encoder.encode("7");
+
+        System.out.println("Ok!");
+
+        RSACracker cracker = new RSACracker(encoder.getPublicKey().left, encoder.getPublicKey().right, message);
+        Instant startTime = Instant.now();
+        cracker.crack();
+        Instant endTime = Instant.now();
+
+        System.out.println("Cracking time: " + Duration.between(startTime, endTime).toMillis());*/
     }
 }
