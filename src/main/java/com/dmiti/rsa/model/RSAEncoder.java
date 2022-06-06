@@ -54,11 +54,6 @@ public class RSAEncoder {
         List<String> partedMessage = splitMessage(message);
         codeParts(partedMessage);
 
-        //partedMessage.add(0, "N = " + n.toString() + ", e = " + e.toString() + "\n");
-
-        // TODO: remove after debugging
-        logNumbers(p, q, phiN, partedMessage);
-
         return partedMessage;
     }
 
@@ -108,8 +103,6 @@ public class RSAEncoder {
             messageParts.add(part);
         }
 
-        // TODO: remove after debugging
-        logger.info("Message parts: " + messageParts);
         return messageParts;
     }
 
@@ -129,17 +122,7 @@ public class RSAEncoder {
             encodedMessage.append(characters[index]);
         }
 
-        // TODO: remove after debugging
-        logger.info("decrypted message = " + encodedMessage.toString());
-
         return encodedMessage.toString();
-    }
-
-    private void logNumbers(BigInteger p, BigInteger q, BigInteger phiN, List<String> partedMessage) {
-        logger.info(String.format("Prime numbers:\n\tp = %s\n\tq = %s\n" +
-                "Public key:\n\tN = %s\n\te = %s\nEuler function: %s\nPrivate key:\n" +
-                "\td = %s\nEncrypted message parts: %s", p, q, publicKey.left, publicKey.right, phiN,
-                privateKey, partedMessage));
     }
 
     public ImmutablePair<BigInteger, BigInteger> getPublicKey() {

@@ -151,10 +151,4 @@ public class MainController {
             return "NONE";
         }
     }
-
-    /*@PostMapping("/training")
-    public String trainProcess() {
-
-    }*/
-    //TODO: generate simple RSA code on any word with a small p, q and e numbers. User on his own decode and enter a result. Check validity of results and return corresponding message.
 }
