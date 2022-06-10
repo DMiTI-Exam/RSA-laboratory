@@ -12,8 +12,8 @@
         <div class="form-group">
             <div class="row pt-2 pb-2">
                 <div class="col mx-auto">
-                    <div class="text-center">
-                        Минимальная битовая длина (2^(n-1) + 1)
+                    <div class="text-center" id="min-num">
+                        Минимальная битовая длина n<br/>Минимальное соответсвующее число 2<sup>n-1</sup> + 1: (17)
                     </div>
                 </div>
             </div>
@@ -37,8 +37,8 @@
             </div>
             <div class="row  pt-2 pb-2">
                 <div class="col mx-auto">
-                    <div class="text-center">
-                        Максимальная битовая длина (2^n - 1)
+                    <div class="text-center" id="max-num">
+                        Максимальная битовая длина n<br/>Максимальное соответсвующее число 2<sup>n</sup> - 1: (4.951760157141521e+27)
                     </div>
                 </div>
             </div>
