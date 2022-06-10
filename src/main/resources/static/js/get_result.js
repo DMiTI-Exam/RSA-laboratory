@@ -37,6 +37,7 @@ function getData() {
                 window.location = "/stable_rsa";
             } else if (result != "NONE"){
                 window.location = "/poor_rsa";
+                localStorage.setItem('cracked_message', result);
             } else if (result == "NONE" && timer <= 0){
                 window.location = "/stable_rsa";
             }

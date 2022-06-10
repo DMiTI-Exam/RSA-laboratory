@@ -35,7 +35,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row  pt-2 pb-2">
+            <div class="row pt-2 pb-2">
                 <div class="col mx-auto">
                     <div class="text-center" id="max-num">
                         Максимальная битовая длина n<br/>Максимальное соответсвующее число 2<sup>n</sup> - 1: (4.951760157141521e+27)
