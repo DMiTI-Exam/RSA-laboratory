@@ -2,6 +2,7 @@ package com.dmiti.rsa.controller;
 
 import com.dmiti.rsa.model.RSACracker;
 import com.dmiti.rsa.model.RSAEncoder;
+import com.dmiti.rsa.util.Util;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -85,7 +86,7 @@ public class MainController {
 
         int degree = random.ints(3, 501).findFirst().getAsInt();
         RSAEncoder rsaEncoder = new RSAEncoder(new ImmutablePair<>(5, 7), degree);
-        List<String> code = rsaEncoder.encode(random.nextInt(1000) + 1 + "");
+        List<String> code = rsaEncoder.encode(Util.words[random.nextInt(Util.words.length)]);
         String description = String.format("Необходимо расшифровать следующий код. Каждый символ" +
                 "шифруется одним числом):\n%s\nТакже дано:\nN = %s\ne = %s\n", code, rsaEncoder.getPublicKey().left,
                 rsaEncoder.getPublicKey().right);
