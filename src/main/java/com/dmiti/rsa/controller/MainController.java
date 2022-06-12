@@ -88,7 +88,7 @@ public class MainController {
         RSAEncoder rsaEncoder = new RSAEncoder(new ImmutablePair<>(5, 7), degree);
         List<String> code = rsaEncoder.encode(Util.words[random.nextInt(Util.words.length)]);
         String description = String.format("Необходимо расшифровать следующий код. Каждый символ" +
-                "шифруется одним числом:\n%s\nТакже дано:\nN = %s\ne = %s\n", code, rsaEncoder.getPublicKey().left,
+                " шифруется одним числом:\n%s\nТакже дано:\nN = %s\ne = %s\n", code, rsaEncoder.getPublicKey().left,
                 rsaEncoder.getPublicKey().right);
         String source = rsaEncoder.decode(code);
 
