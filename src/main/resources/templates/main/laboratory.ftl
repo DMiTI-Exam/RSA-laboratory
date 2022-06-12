@@ -12,7 +12,7 @@
                 <input type="number" name="number_e" class="form-control" min="0" id="number_e">
             </div>
             <div class="pt-2 pb-2">
-                <label for="message" class="form-label">Введите Зашифрованное сообщение</label>
+                <label for="message" class="form-label">Введите зашифрованное сообщение</label>
                 <textarea id="message" name="message" class="form-control pt-2 pb-2" rows="3" placeholder="Введите своё сообщение, для попытки расшифровки"></textarea>
             </div>
             <button type="button" name="send" id="sendToCheck" class="btn btn-primary submit-button form-control pt-2 pb-2">Проверить</button>

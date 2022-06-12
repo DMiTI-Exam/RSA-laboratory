@@ -2,8 +2,8 @@ $(document).ready(function()
 {
     $("#sendToCheck").click(function()
     {
-        if ($("#message").hasClass("bg-danger")) {
-            window.confirm("Вам необходимо заполнить поле с сообщением корректно");
+        if ($("#message").hasClass("bg-danger") || $("#message").val() === "") {
+            alert("Вам необходимо заполнить поле с сообщением корректно")
         } else {
             const array = new Uint32Array(1);
             window.crypto.getRandomValues(array);

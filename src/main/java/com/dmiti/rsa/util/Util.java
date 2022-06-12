@@ -16,7 +16,7 @@ public class Util {
     public static final String[] words = new String[] {"год", "дело", "день", "рука", "лицо", "глаз", "друг", "дом",
             "вид", "час", "отец", "нога", "вода", "бог", "жена", "ночь", "суд", "стол", "имя", "путь", "душа", "язык",
             "цель", "муж", "роль", "мама", "мера", "труд", "тело", "утро", "мать", "сын", "век", "идея", "окно",
-            "ряд", "счёт", "цена", "план", "вещь", "срок", "член", "ход", "опыт", "лес", "тип", "брат", "шаг", "игра",
+            "ряд", "счёт", "цена", "план", "вещь", "срок", "ход", "опыт", "лес", "тип", "брат", "шаг", "игра",
             "край", "банк", "зал", "врач", "небо", "факт", "союз", "род", "дух", "поле", "угол", "двор", "база",
             "стих", "ум", "море", "удар", "сон", "поэт", "пара", "дочь", "фонд", "папа", "курс", "губа", "река",
             "нос", "ухо", "сад", "лето", "итог", "рис", "рот", "цвет", "лист", "гора", "воля", "зона", "бой", "метр",
@@ -28,13 +28,13 @@ public class Util {
             "обед", "смех", "сбор", "риск", "пиво", "штаб", "брак", "штат", "куст", "шанс", "кофе", "дым", "лёд",
             "конь", "вина", "миг", "тётя", "полк", "село", "танк", "еда", "мэр", "темп", "уход", "мина", "act", "add",
             "age", "aged", "aim", "air", "apt", "area", "arm", "army", "art", "ask", "baby", "back", "bad", "bald",
-            "bank", "bare", "base", "be", "bear", "beat", "bed", "big", "blue", "body", "bold", "book", "born", "boy",
+            "bank", "base", "be", "bear", "beat", "bed", "big", "blue", "body", "bold", "book", "born", "boy",
             "busy", "buy", "call", "calm", "car", "care", "cat", "cd", "city", "club", "cold", "come", "cool", "cost",
             "cosy", "cry", "cut", "daft", "damp", "data", "date", "day", "dead", "deaf", "deal", "dear", "deep",
             "deny", "die", "dim", "dire", "do", "dog", "door", "draw", "drop", "drug", "dry", "dull", "dumb", "duty",
             "dvd", "easy", "eat", "end", "eye", "face", "fail", "fair", "fall", "far", "fast", "fat", "feed", "feel",
             "fill", "film", "find", "fine", "fire", "firm", "fit", "five", "flat", "flu", "fly", "fond", "foot",
-            "form", "foul", "four", "free", "full", "fund", "gain", "game", "gay", "get", "girl", "give", "glad",
+            "form", "foul", "four", "free", "full", "fund", "gain", "game", "get", "girl", "give", "glad",
             "go", "gold", "good", "grey", "grim", "grow", "hair", "hall", "hand", "hang", "hard", "hate", "have",
             "head", "hear", "help", "hide", "high", "hit", "hold", "holy", "home", "hope", "hot", "hour", "huge",
             "idea", "ill", "job", "join", "just", "keen", "keep", "kill", "kind", "king", "know", "lady", "lamp",
@@ -51,7 +51,7 @@ public class Util {
             "tend", "term", "test", "that", "thin", "tidy", "time", "tiny", "town", "tree", "true", "try", "turn",
             "tv", "two", "type", "ugly", "unit", "use", "vain", "vary", "vast", "void", "wait", "walk", "wall",
             "want", "war", "warm", "warn", "wary", "way", "weak", "wear", "week", "well", "wet", "wide", "wife",
-            "wild", "win", "wise", "wish", "word", "work", "work", "wry", "year", "zero"
+            "wild", "win", "wise", "wish", "word", "work", "wry", "year", "zero"
     };
 
     public static BigInteger pow(BigInteger base,BigInteger exponent) {

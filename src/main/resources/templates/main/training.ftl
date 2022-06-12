@@ -91,9 +91,13 @@
                                     <div class="col">191 - 'ь'</div>
                                 </div>
                                 <div class="row">
+                                    <div class="col"></div>
+                                    <div class="col"></div>
                                     <div class="col">192 - 'э'</div>
                                     <div class="col">193 - 'ю'</div>
                                     <div class="col">194 - 'я'</div>
+                                    <div class="col"></div>
+                                    <div class="col"></div>
                                 </div>
                             </div>
                         </div>
